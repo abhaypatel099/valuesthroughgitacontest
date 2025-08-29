@@ -1,5 +1,5 @@
 [build]
-  base = "https://github.com/abhaypatel099/valuesthroughgitacontest"              
+  base = ""             
   publish = "build"
   command = "npm run build"
 
