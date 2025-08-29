@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 .App {
-  font-family: "Hachi Maru Pop", cursive;
   display: flex;
   padding: 15px;
 }
@@ -28,24 +27,70 @@
   cursor: pointer;
 }
 .App #downloadWrapper {
-  padding: 20px;
+  padding: 10px;
 }
+
+
 .App #certificateWrapper {
   box-shadow: 0 0 5px #000;
   border-radius: 10px;
-  overflow: hidden;
-  position: relative;
+  margin: 10px;
+  color: white;
+
+  /* Ensure text wraps */
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  /* Optional: ensure content stays inside */
+  /* overflow: hidden; */
 }
+
 .App #certificateWrapper img {
   display: block;
   width: 60rem;
   /* height: rem; */
 }
 .App #certificateWrapper p {
-  font-family: "Staatliches", cursive;
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
   margin: 0;
   position: absolute;
-  left: 300px;
-  top: 330px;
-  font-size: 40pt;
+  left: 100px;
+  right:100px;
+  top: 150px;
+  line-height: 60px;
+  font-size: 30pt;
 }
+
+#certificateWrapper {
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0 5px #000;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+  color: white;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+#certificateWrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#certificateWrapper p {
+  position: absolute;
+   top: 100%; 
+  /* left: 50%; Center horizontally */ 
+  /* transform: translate(-50%, -50%); */
+  margin: 0;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  /* overflow-wrap: break-word; */
+}
+
+

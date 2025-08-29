@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { exportComponentAsPNG } from "react-component-export-image";
-import IMG1 from './assets/sparks.jpg';
+import IMG1 from './assets/backpage.jpg';
+import { toPng } from "html-to-image";
 
 class App extends Component {
   certificateWrapper = React.createRef();
@@ -11,9 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Meta">
-          <h1>BG Certificate</h1>
-          <p>Please enter your name.</p>
-          <input
+          <h1>Download</h1>
+          <p>Please enter your text.</p>
+          <input 
             type="text"
             placeholder="Please enter your name..."
             value={this.state.Name}
@@ -22,15 +23,25 @@ class App extends Component {
             }}
           />
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              exportComponentAsPNG(this.certificateWrapper, {
-                html2CanvasOptions: { backgroundColor: null }
-              });
+            onClick={() => {
+              if (this.certificateWrapper.current) {
+                toPng(this.certificateWrapper.current, { cacheBust: true })
+                  .then((dataUrl) => {
+                    const link = document.createElement("a");
+                    link.download = "certificate.png";
+                    link.href = dataUrl;
+                    link.click();
+                  })
+                  .catch((err) => {
+                    console.error("Error generating image", err);
+                  });
+              }
             }}
           >
             Download
           </button>
+
+
         </div>
 
         <div id="downloadWrapper" ref={this.certificateWrapper}>
@@ -39,6 +50,7 @@ class App extends Component {
             <img src={IMG1} alt="Certificate" />
           </div>
         </div>
+
       </div>
     );
   }
