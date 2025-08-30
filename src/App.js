@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { exportComponentAsPNG } from "react-component-export-image";
-import IMG1 from './assets/backpage.jpg';
+import IMG1 from './assets/pageback.jpg';
 import { toPng } from "html-to-image";
 
 class App extends Component {
