@@ -1,14 +1,35 @@
 * {
   box-sizing: border-box;
 }
+
 .App {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 15px;
 }
+
+/* Styling for child .Meta in default (desktop/tablet) layout */
 .App .Meta {
   flex-grow: 1;
   padding-right: 15px;
 }
+
+/* Responsive styling for screens 768px wide or less */
+@media screen and (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    align-items: stretch; /* Optional: make children fill width */
+  }
+
+  .App .Meta {
+    padding-right: 0; /* Remove right padding on smaller screens */
+    margin-bottom: 15px; /* Optional: add spacing between stacked elements */
+  }
+}
+
+
+
 .App .Meta input {
   font-family: inherit;
   padding: 5px;
@@ -57,9 +78,9 @@
   position: absolute;
   left: 100px;
   right:100px;
-  top: 150px;
-  line-height: 60px;
-  font-size: 30pt;
+  top: 200px;
+  line-height: 80px;
+  font-size: 50pt;
 }
 
 #certificateWrapper {
